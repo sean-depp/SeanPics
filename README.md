@@ -1,2 +1,2 @@
-# SeanPic
+# SeanPics
 my pic
