@@ -1,2 +1,2 @@
 # SeanPics
-my pic
+Sean's pics
