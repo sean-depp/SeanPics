@@ -38,7 +38,7 @@
 
 > 来一一说明:
 
-> * 使用Powershell 2.0或更高版本的Windows计算机(XP或更高版本), 相比之前介绍的镜像重打包软件ESXi-Customizer, 这次更新使用Powershell脚本ESXi-Customizer-PS, 除了更加geek(zhaungbi)之外, 也可以进行更多操作.
+> * 使用Powershell 2.0或更高版本的Windows计算机(XP或更高版本), 相比之前介绍的镜像重打包软件ESXi-Customizer, 这次更新使用Powershell脚本ESXi-Customizer-PS, 除了更加geek(zhuang bi)之外, 也可以进行更多操作.
 > * 再者就是需要VMware PowerCLI 5.1或更高版本的. 可以通过Powershell直接下载, 类似于Linux的apt-get.
 
 > 以上两个都是[打包脚本官网](https://www.v-front.de/p/esxi-customizer-ps.html#download)给出的要求.
