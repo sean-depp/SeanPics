@@ -185,8 +185,6 @@ esxcli system settings kernel set --setting=noIOMMU -v TRUE
 
 > 关于是否支持VT-d和VT-x, 可以查看[英特尔官方文档](https://ark.intel.com/content/www/cn/zh/ark/products/81060/intel-xeon-processor-e5-2698-v3-40m-cache-2-30-ghz.html), 
 
-![image](https://user-images.githubusercontent.com/21376904/61182617-977ef400-a668-11e9-8c68-f76753bc39b6.png)
-
 ![image](https://user-images.githubusercontent.com/21376904/61182620-99e14e00-a668-11e9-8fd5-99b7be872283.png)
 
 ![image](https://user-images.githubusercontent.com/21376904/61577778-c260c080-ab1e-11e9-8174-08cd77d700fb.png)
