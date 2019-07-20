@@ -181,22 +181,30 @@ esxcli system settings kernel set --setting=noIOMMU -v TRUE
 ### 显卡直通
 
 > 先安装VMware Tools.
-> 然后按照[官方文档指示开启](https://docs.vmware.com/cn/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-5B3CAB26-5D06-4A99-92A0-3A04C69CE64B.html). 我的CPU不支持Intel Virtualization Technology for Directed I/O (VT-d), 暂时无法演示.
+> 然后按照[官方文档指示开启](https://docs.vmware.com/cn/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-5B3CAB26-5D06-4A99-92A0-3A04C69CE64B.html). 需要CPU支持Intel Virtualization Technology for Directed I/O (VT-d), 比如说我这里是**双Intel(R) Xeon(R) CPU E5-2696 v3 @ 2.30GHz** + **双GTX1080Ti交火**. 不支持就放弃吧, 支持的话, 进入BIOS开启这两项.
 
-> 关于是否支持VT-d和VT-x, 可以查看[英特尔官方文档](https://ark.intel.com/zh-cn/products/75117/Intel-Core-i7-4700MQ-Processor-6M-Cache-up-to-3-40-GHz-), 我的笔记本CPU为i7-4700MQ, 截图如下:
+> 关于是否支持VT-d和VT-x, 可以查看[英特尔官方文档](https://ark.intel.com/content/www/cn/zh/ark/products/81060/intel-xeon-processor-e5-2698-v3-40m-cache-2-30-ghz.html), 
 
 ![image](https://user-images.githubusercontent.com/21376904/61182617-977ef400-a668-11e9-8c68-f76753bc39b6.png)
 
 ![image](https://user-images.githubusercontent.com/21376904/61182620-99e14e00-a668-11e9-8fd5-99b7be872283.png)
 
+![image](https://user-images.githubusercontent.com/21376904/61577778-c260c080-ab1e-11e9-8174-08cd77d700fb.png)
+
+
+> 我这边已经显卡直通了, 所以是显示活动. 如果是第一次激活直通, 需要勾选-切换直通, 系统进入维护模式-重新引导主机. 然后点击虚拟机, 添加PCI设备.
+
+![image](https://user-images.githubusercontent.com/21376904/61577825-326f4680-ab1f-11e9-9642-2ae8f0eab277.png)
+
+![image](https://user-images.githubusercontent.com/21376904/61577854-bb867d80-ab1f-11e9-9e4b-d0ba4df54655.png)
+
 ----------
 
 ## 最后
 
-> 整体流程其实并不繁琐, 我花时间最久的地方就是镜像打包和bug修复, 后续还会继续更新这一块, 注意ESXi只有60天试用哦, 记得在过期前购买许可证. 喜欢记得点赞哦, 有意见或者建议评论区见哦~
+> 整体流程其实并不繁琐, 我花时间最久的地方就是镜像打包和bug修复, 后续还会继续更新这一块, 注意ESXi只有60天试用哦, 记得在过期前添加许可证(导航器-主机-管理-许可). 喜欢记得点赞哦, 有意见或者建议评论区见哦~
 
 ---------- 
-
 
 
 
