@@ -140,7 +140,7 @@ lsmod | grep nouveau
 
 ### 安装驱动
 
-> ~~来到tty1(快捷键ctrl + alt + f1,如果没反应就f1-f7一个个试, 不同Linux, 按键会略有不同). 运行如下指令关闭图形界面.~~我在ubuntu 18.04 LTS是ctrl + alt + f3-f6. 
+> ~~来到tty1(快捷键ctrl + alt + f1,如果没反应就f1-f7一个个试, 不同Linux, 按键会略有不同). 运行如下指令关闭图形界面.~~ 我在ubuntu 18.04 LTS是ctrl + alt + f3-f6. 
 
 > 然后注意, 以下指令适用于16.04及以前.
 
