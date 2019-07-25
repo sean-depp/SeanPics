@@ -1,4 +1,4 @@
-# Ubuntu18.04下CUDA10.x和TensorFlow1.x环境搭建
+# Ubuntu18.04下CUDA10.x和TensorFlow1.x环境搭建(2019.7重编版)
 
 
 [Mac和Ubuntu下修改pip源和TensorFlow(CPU)安装](https://www.jianshu.com/p/aa97968de1c2)
