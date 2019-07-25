@@ -66,7 +66,7 @@ lspci | grep -I nvidia
 
 ----------
 
-### 下载驱动
+### ~~下载驱动~~
 
 > 我的实操:
 > 首先到[官网](https://www.geforce.cn/drivers)下载显卡驱动, 比方说我是GTX 1080Ti, 操作系统是64位Linux, 我就找对应的版本进行下载.
@@ -138,7 +138,7 @@ lsmod | grep nouveau
 ----------
 
 
-### 安装驱动
+### ~~安装驱动~~
 
 > ~~来到tty1(快捷键ctrl + alt + f1,如果没反应就f1-f7一个个试, 不同Linux, 按键会略有不同). 运行如下指令关闭图形界面.~~ 我在ubuntu 18.04 LTS是ctrl + alt + f3-f6. 
 
