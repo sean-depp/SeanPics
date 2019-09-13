@@ -1,5 +1,27 @@
 # 舒适美观的mac终端, iTerm2 + zsh + powerlevel9k(另附vim和virtualenv基础设置)
 
+## 目录
+
+* 前言
+* homebrew
+* iTerm2
+* oh-my-zsh
+* 配色
+* 毛玻璃
+* 字体
+* powerlevel9k
+* zsh插件
+* vim
+
+> * 配色
+> * vim设置
+
+* virtualenv
+
+> * 修改pip源
+> * virtualenv配置
+> * virtualenvwrapper使用
+
 ## 前言
 
 > 最近mac不知道怎么了, 估计是新品又要到来了, 水果决定解决老机型过于流畅的bug, 出现各种问题, 比如屏幕底部会突然花屏, 一次约0.1s, 或者是界面卡死之类的. 还有就是插上扩展坞网速就为零. 所以趁着中秋, 重装一下, 然后这些bug都没了(我太难了.jpg). 顺带写下这篇配置篇, 省得以后麻烦.
