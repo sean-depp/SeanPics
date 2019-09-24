@@ -1,4 +1,4 @@
-# 舒适美观的mac终端, iTerm2 + zsh + powerlevel9k(另附vim和virtualenv基础设置)
+# 舒适美观的mac终端, iTerm2+zsh+powerlevel9k+vim+virtualenv
 
 ## 目录
 
@@ -11,20 +11,24 @@
 * 字体
 * powerlevel9k
 * zsh插件
-* vim
+* vim设置
 
 > * 配色
-> * vim设置
+> * 代码折叠
+> * 插件管理和使用
 
-* virtualenv
+>> * vim-powerline
+>> * 多行注释
 
+* python配置
 > * 修改pip源
 > * virtualenv配置
 > * virtualenvwrapper使用
 
 ## 前言
 
-> 最近mac不知道怎么了, 估计是新品又要到来了, 水果决定解决老机型过于流畅的bug, 出现各种问题, 比如屏幕底部会突然花屏, 一次约0.1s, 或者是界面卡死之类的. 还有就是插上扩展坞网速就为零. 所以趁着中秋, 重装一下, 然后这些bug都没了(我太难了.jpg). 顺带写下这篇配置篇, 省得以后麻烦.
+> ~~最近mac不知道怎么了, 估计是新品又要到来了, 水果决定解决老机型过于流畅的bug, 出现各种问题, 比如屏幕底部会突然花屏, 一次约0.1s, 或者是界面卡死之类的. 还有就是插上扩展坞网速就为零. 所以趁着中秋, 重装一下, 然后这些bug都没了(我太难了.jpg). 顺带写下这篇配置篇, 省得以后麻烦.~~
+> 更新了vim配置内容
 
 ------
 
@@ -173,12 +177,187 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ## vim设置
 
-> 我个人还是很喜欢用vim的, 只要不是太复杂的环境, 我都尽量使用vim进行代码编辑. 来看看一些设置和配置吧.
-> 首先是homebrew进行安装:
+> 我个人还是很喜欢用vim的, 只要不是太复杂的环境, 我都尽量使用vim进行代码编辑. 来看看一些设置和配置吧. 当然, 你可以直接[打造成IDE](https://github.com/yangyangwithgnu/use_vim_as_ide)
+> homebrew进行安装:
 
 ```
 brew install vim
 ```
+
+> 然后我先贴出全部的vimrc配置文件内容:
+
+```
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" 插件列表开始
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/phd'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'kshenoy/vim-signature'
+Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'SirVer/ultisnips'
+Plugin 'derekwyatt/vim-protodef'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'lilydjwg/fcitx.vim'
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
+
+" 定义快捷键的前缀, 即<Leader>
+let mapleader=";"
+
+" 设置状态栏主题风格
+let g:Powerline_colorscheme='solarized256'
+
+" 基于缩进或语法进行代码折叠
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+
+" 打开语法高亮
+syntax on
+
+" 使用配色方案
+colorscheme gruvbox 
+ 
+" 打开文件类型检测功能
+filetype on
+
+" 不同文件类型采用不同缩进
+filetype indent on
+ 
+" 允许使用插件
+filetype plugin on
+filetype plugin indent on
+
+" 关闭vi模式
+set nocp
+ 
+" 与mac共享剪贴板
+set clipboard+=unnamed
+
+" 取消VI兼容
+set nocompatible
+ 
+" 显示行号
+set nu
+
+" 历史命令保存行数 
+set history=1000
+ 
+" 当文件被外部改变时自动读取
+set autoread 
+
+" 取消自动备份及产生swp文件
+set nobackup
+set nowb
+set noswapfile
+ 
+" 允许使用鼠标点击定位
+set mouse=a
+" 允许区域选择
+set selection=exclusive
+ 
+" 高亮光标所在行
+set cursorline
+" 取消光标闪烁
+set novisualbell
+ 
+" 总是显示状态行
+set laststatus=2
+" 状态栏显示当前执行的命令
+set showcmd
+ 
+" 标尺功能, 显示当前光标所在行列号
+set ruler
+" 设置命令行高度为2
+set cmdheight=2
+ 
+" 粘贴时保持格式
+" set paste
+" 高亮显示匹配的括号
+set showmatch
+ 
+" 在搜索的时候忽略大小写
+set ignorecase
+ 
+" 高亮被搜索的句子
+set hlsearch
+ 
+" 在搜索时, 输入的词句的逐字符高亮
+set incsearch
+" 继承前一行的缩进方式
+set autoindent
+ 
+" 为c程序提供自动缩进
+set smartindent
+" 使用c样式的缩进
+set cindent
+ 
+" 制表符为4
+set tabstop=4
+" 统一缩进为4
+set softtabstop=4
+set shiftwidth=4
+ 
+" 允许使用退格键
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+" 取消换行
+set nowrap
+ 
+" 在被分割的窗口间显示空白
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+ 
+" 光标移动到buffer的顶部和底部时保持3行距离
+set scrolloff=3
+" 设定默认解码
+set fenc=utf-8
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+ 
+" 设定编码
+set enc=utf-8
+set fileencodings=ucs-bom,utf-8,chinese
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+ 
+" 自动补全
+filetype plugin indent on
+set completeopt=longest,menu
+
+" 自动补全命令时候使用菜单式匹配列表
+set wildmenu
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complet
+```
+
 
 ----
 
@@ -197,11 +376,102 @@ curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/
 
 <img width="1440" alt="Snipaste_2019-09-13_21-33-52" src="https://user-images.githubusercontent.com/21376904/64866553-39718b80-d66e-11e9-9a85-205ea2d80cf1.png">
 
-----
+-----
 
-### vim设置
+### 代码折叠
 
-> 这一步就不多说了, github上面挺多的, 甚至可以[打造成IDE](https://github.com/yangyangwithgnu/use_vim_as_ide), 我就不班门弄斧了.
+> 使用自带代码折叠
+
+```
+" 基于缩进或语法进行代码折叠
+"set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+```
+
+> * 进入vim命令模式, za即可折叠当前块
+> * zM关闭所有折叠
+> * zR打开所有折叠
+
+![](https://img-blog.csdnimg.cn/2019092410593853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3M3OTMyMjM3MDY=,size_16,color_FFFFFF,t_70)
+
+-----
+
+### 插件管理和使用
+
+> 安装管理工具vundle:
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+> 打开.vimrc, 加入下列插件内容:
+
+```
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" vundle 管理的插件列表必须位于 vundle#begin() 和 vundle#end() 之间
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/phd'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'kshenoy/vim-signature'
+Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'SirVer/ultisnips'
+Plugin 'derekwyatt/vim-protodef'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'lilydjwg/fcitx.vim'
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
+```
+
+> 进入vim, 命令模式下键入```:PluginInstall```, 即可自动安装:
+
+![](https://img-blog.csdnimg.cn/20190924100947645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3M3OTMyMjM3MDY=,size_16,color_FFFFFF,t_70)
+
+#### vim-powerline
+
+> 利用插件Lokaltog/vim-powerline, 设置状态栏风格:
+
+```
+" 设置状态栏主题风格
+let g:Powerline_colorscheme='solarized256'
+```
+
+![](https://img-blog.csdnimg.cn/20190924100921273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3M3OTMyMjM3MDY=,size_16,color_FFFFFF,t_70)
+
+#### 多行注释
+
+> 多行注释肯定要的. 首先添加<Leader>按钮, 你可以添加自己顺手的, 我这里是;:
+
+```
+" 定义快捷键的前缀, 即<Leader>
+let mapleader=";"
+```
+
+> 然后<Leader>cc注释选中区域, 你可以用v进入选中模式选择多行.
+> <Leader>cu取消注释
 
 ----
 
